@@ -1,0 +1,45 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "zlib.vcproj", "{40578497-324E-4267-90E8-F575E0FDBB37}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		debug_Completion = debug_Completion
+		Debug_IOCPServer = Debug_IOCPServer
+		Release = Release
+		release_Completion = release_Completion
+		Release_IOCPServer = Release_IOCPServer
+		sun_Send_debug = sun_Send_debug
+		sun_send_release = sun_send_release
+		东航专用 = 东航专用
+		东航专用-release = 东航专用-release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{40578497-324E-4267-90E8-F575E0FDBB37}.Debug.ActiveCfg = Debug|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.Debug.Build.0 = Debug|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.debug_Completion.ActiveCfg = debug_Completion|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.debug_Completion.Build.0 = debug_Completion|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.Debug_IOCPServer.ActiveCfg = Debug_IOCPServer|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.Debug_IOCPServer.Build.0 = Debug_IOCPServer|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.Release.ActiveCfg = Release|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.Release.Build.0 = Release|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.release_Completion.ActiveCfg = release_Completion|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.release_Completion.Build.0 = release_Completion|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.Release_IOCPServer.ActiveCfg = Release_IOCPServer|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.Release_IOCPServer.Build.0 = Release_IOCPServer|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.sun_Send_debug.ActiveCfg = sun_Send_debug|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.sun_Send_debug.Build.0 = sun_Send_debug|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.sun_send_release.ActiveCfg = sun_send_release|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.sun_send_release.Build.0 = sun_send_release|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.东航专用.ActiveCfg = 东航专用|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.东航专用.Build.0 = 东航专用|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.东航专用-release.ActiveCfg = 东航专用-release|Win32
+		{40578497-324E-4267-90E8-F575E0FDBB37}.东航专用-release.Build.0 = 东航专用-release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

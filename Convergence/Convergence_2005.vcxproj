@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>Convergence</ProjectName>
+    <ProjectGuid>{97995D66-0506-4101-9428-0B70A9AC371C}</ProjectGuid>
+    <RootNamespace>GESSOffering</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>14.0.25123.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\..\..\bin_cplus\</OutDir>
+    <IntDir>..\debug\$(ProjectName)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\..\..\bin_cplus\</OutDir>
+    <IntDir>..\release\$(ProjectName)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\zlib\;..\FramworkApSampler\Include;..\SvAgent\Include;..\..\..\Framework\CPlusFramwork\WdInterface\Include;..\..\..\Framework\CPlusFramwork\XQueue\Include;..\..\..\Framework\CPlusFramwork\NetMgr\Include;..\..\..\Framework\CPlusFramwork\NetMgrAgent\Include;..\..\..\Framework\CPlusFramwork\Utility\Include;..\..\..\Framework\CPlusFramwork\CommFramwork\Include;..\..\..\Framework\CPlusFramwork\FramworkAp\Include;..\..\..\Framework\CPlusFramwork\BlockMsg\Include;..\..\..\Framework\CPlusFramwork\FramworkNm\Include;..\..\..\Framework\CPlusFramwork\Include\pthread;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Ws2_32.lib;FramworkNmD.lib;XQueueD.lib;WdInterfaceD.lib;NetMgrAgentD.lib;NetMgrD.lib;UtilityD.lib;CommFramworkD.lib;FramworkApD.lib;FramworkApSamplerD.lib;BlockMsgD.lib;pthreadVC2d.lib;SvAgentD.lib;zlibD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName)D.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\..\..\BIN_CPLUS;..\..\..\Framework\CPlusFramwork\lib\pthread;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\zlib\;..\FramworkApSampler\Include;..\SvAgent\Include;..\..\..\Framework\CPlusFramwork\WdInterface\Include;..\..\..\Framework\CPlusFramwork\XQueue\Include;..\..\..\Framework\CPlusFramwork\NetMgr\Include;..\..\..\Framework\CPlusFramwork\NetMgrAgent\Include;..\..\..\Framework\CPlusFramwork\Utility\Include;..\..\..\Framework\CPlusFramwork\CommFramwork\Include;..\..\..\Framework\CPlusFramwork\FramworkAp\Include;..\..\..\Framework\CPlusFramwork\BlockMsg\Include;..\..\..\Framework\CPlusFramwork\FramworkNm\Include;..\..\..\Framework\CPlusFramwork\Include\pthread;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;HAVE_STRUCT_TIMESPEC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Ws2_32.lib;FramworkNm.lib;XQueue.lib;WdInterface.lib;NetMgrAgent.lib;NetMgr.lib;Utility.lib;CommFramwork.lib;FramworkAp.lib;FramworkApSampler.lib;BlockMsg.lib;pthreadVC2.lib;SvAgent.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>..\..\..\BIN_CPLUS;..\..\..\Framework\CPlusFramwork\lib\pthread;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>false</GenerateMapFile>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Convergence.cpp" />
+    <ClCompile Include="CvgCpMgr.cpp" />
+    <ClCompile Include="DeliverMgr.cpp" />
+    <ClCompile Include="HisDataHandler.cpp" />
+    <ClCompile Include="InfoPublisher.cpp" />
+    <ClCompile Include="InfoSender.cpp" />
+    <ClCompile Include="Markup.cpp" />
+    <ClCompile Include="MemData.cpp" />
+    <ClCompile Include="QuotationTbl.cpp" />
+    <ClCompile Include="SendCommand.cpp" />
+    <ClCompile Include="ServiceHandler.cpp" />
+    <ClCompile Include="SubscriberTbl.cpp" />
+    <ClCompile Include="XmlInfoIndexFile.cpp" />
+    <ClCompile Include="YLFileMapping.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\zlib\zconf.h" />
+    <ClInclude Include="..\zlib\zlib.h" />
+    <ClInclude Include="CvgCpMgr.h" />
+    <ClInclude Include="datatypes.h" />
+    <ClInclude Include="DeliverMgr.h" />
+    <ClInclude Include="FileMappingList.h" />
+    <ClInclude Include="HisDataHandler.h" />
+    <ClInclude Include="InfoPublisher.h" />
+    <ClInclude Include="InfoSender.h" />
+    <ClInclude Include="Markup.h" />
+    <ClInclude Include="MemData.h" />
+    <ClInclude Include="QuotationTbl.h" />
+    <ClInclude Include="SendCommand.h" />
+    <ClInclude Include="ServiceHandler.h" />
+    <ClInclude Include="SubscriberTbl.h" />
+    <ClInclude Include="XmlInfoIndexFile.h" />
+    <ClInclude Include="YLFileMapping.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
