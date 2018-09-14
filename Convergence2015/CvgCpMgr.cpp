@@ -373,6 +373,7 @@ CCvgCpMgr::CCvgCpMgr()
 ,m_uiNodeID(0)
 ,m_uiNodeType(0)
 ,m_bStop(false)
+,m_cStoreType(0)
 {
 	m_pConfig = new CConfigImpl();
 
@@ -623,8 +624,6 @@ int CCvgCpMgr::Init(const string& sProcName)
 	unsigned int uiProcessID = ::GetCurrentProcessId();
 	m_oMemShareAlive.IamAlive(uiProcessID);
 	m_oMemShareAlive.SetNodeID(m_uiNodeID);
-
-
 
 	//
 	CAbsTimerMgrWin32::Instance()->Init();

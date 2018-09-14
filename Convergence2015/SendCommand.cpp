@@ -387,7 +387,7 @@ time_t YLDateTimeToTime(const YLDateTime &dt)
     return mktime(&atm);
 }
 
-void CSendCommand::SearchPointFromFile(const char *filename, vector<StockDayT> &stVector)
+void CSendCommand::SearchPointFromFile(_IN const char *filename, _OUT vector<StockDayT> &stVector)
 {
     CFileMappingList<StockDayT> fml;
     
@@ -509,6 +509,7 @@ void CSendCommand::SendTickData(const HisDataInfo &hisDataInfo)
 
     if (files.empty())
     {
+		cout << "No hisdata sended! " << "\n";
         return;
     }
 

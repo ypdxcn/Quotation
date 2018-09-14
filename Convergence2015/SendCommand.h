@@ -23,6 +23,8 @@
 #include "DeliverMgr.h"
 #include "XmlInfoIndexFile.h"
 
+#define _IN
+#define _OUT
 
 using namespace std;
 

@@ -144,7 +144,8 @@ void CInfoPublisher::ConnectODBCDatabase()
 
 unsigned __stdcall  CInfoPublisher::MonitorDataBaseFunc( void *param )
 {
-	Sleep(20000);
+	//kenny  20180913  暂时屏蔽
+	//Sleep(20000);
 	CInfoPublisher *pInfoPub = (CInfoPublisher*)param;
 
 	int iMaxVal = 0;
@@ -504,7 +505,8 @@ void CInfoPublisher::DistributeInfo(const char *filename)
         CInfoSender sender(m_contentPath.c_str(), m_pDevliverMgr);
 
         int n = 0;
-        for (int i = 0; i < infoIdx.GetCount(); i++)
+		int infoNum = infoIdx.GetCount();
+        for (int i = 0; i < infoNum; i++)
         {
             // 索引文件的一条记录
             InfoFile *pIF = infoIdx.GetItem(i);
