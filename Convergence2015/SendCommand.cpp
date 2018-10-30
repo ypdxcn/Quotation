@@ -714,7 +714,7 @@ void CSendCommand::SendInfoIndex(const char *filename)
         // 市场类型是否符合条件
         string strTmp;
         strTmp.append(pIF->marketType, sizeof(pIF->marketType));
-        if (m_marketInfo.marketType != strTmp)
+        if (m_marketInfo.marketType.compare(strTmp.c_str()) != 0)
         {
             continue;
         }

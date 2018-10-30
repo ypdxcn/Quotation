@@ -73,7 +73,7 @@ int CSubscriberTbl::CancelSubscriber(const unsigned int & subscriberID )
    * 
    * return 
    */
-map<unsigned int,SUB_CONTEXT> CSubscriberTbl::GetSubscriberMap()
+map<unsigned int,SUB_CONTEXT>& CSubscriberTbl::GetSubscriberMap()
 {
 	CGessGuard guard(m_mutexTbl);
 

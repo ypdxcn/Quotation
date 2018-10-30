@@ -15,14 +15,15 @@
 
 
 #include "InfoPublisher.h"
-#include "windows.h"
+//#include "windows.h"
 #include "process.h"
 #include "XmlInfoIndexFile.h"
 #include "SamplerMsgDef.h"
 #include "SamplerPacket.h"
 #include <iostream>
 #include "InfoSender.h"
-#include <WinSock.h>
+//#include <WinSock.h>
+#include <thread>
 
 CDatabase g_DB;
 
@@ -105,9 +106,11 @@ void CInfoPublisher::Start(const char *infoIdxPath, const char *contentPath,
 
     m_end = false;
 
-    unsigned int uThrID;
-    HANDLE hThread = (HANDLE)_beginthreadex(NULL, 0, &MonitorFunc, 
-        this, 0, &uThrID);
+    //unsigned int uThrID;
+    //HANDLE hThread = (HANDLE)_beginthreadex(NULL, 0, &MonitorFunc,         this, 0, &uThrID);
+	m_ScanFileThread = std::move(thread(std::bind(MonitorFunc, this)));
+	m_ScanFileThread.detach();
+
 }
 
 bool CInfoPublisher::Start(CDeliverMgr *pDeliverMgr,const string& szODBC)
@@ -119,20 +122,24 @@ bool CInfoPublisher::Start(CDeliverMgr *pDeliverMgr,const string& szODBC)
 	m_szODBC =  szODBC;
 
 	m_pDevliverMgr = pDeliverMgr;
-	unsigned int uThreadid;
-	HANDLE hThread = (HANDLE)_beginthreadex(NULL, 0, &MonitorDataBaseFunc,
-		this, 0, &uThreadid);
-	if(NULL == hThread)
-	{
-		return false;
-	}
+	//unsigned int uThreadid;
+	//HANDLE hThread = (HANDLE)_beginthreadex(NULL, 0, &MonitorDataBaseFunc,this, 0, &uThreadid);
+	//std::thread  thread(std::bind(MonitorDataBaseFunc, this));
+	m_ScanDBThread = std::move(thread(std::bind(MonitorDataBaseFunc, this)));
+	m_ScanDBThread.detach();
+
+	//if(NULL == hThread)
+	//{
+	//	return false;
+	//}
 	return true;
 }
 
 void CInfoPublisher::Stop()
 {
+	
     m_end = true;
-    Sleep(50);
+   // Sleep(50);
 }
 
 void CInfoPublisher::ConnectODBCDatabase()
@@ -174,7 +181,7 @@ unsigned __stdcall  CInfoPublisher::MonitorDataBaseFunc( void *param )
 				sprintf(acDB, "DSN=%s;", pInfoPub->m_szODBC.c_str());
 				bRet = g_DB.OpenEx(acDB);
 
-				g_DB.ExecuteSQL("set names utf8");
+				//g_DB.ExecuteSQL("set names utf8");
 
 				
 			}
@@ -196,9 +203,12 @@ unsigned __stdcall  CInfoPublisher::MonitorDataBaseFunc( void *param )
 		try
 		{
 			CString strSQL;
-			strSQL.Format(_T("select A.*,B.typecode from TB_MESSAGE as A join TB_MESSAGETYPE as B on  A.mtid = B.mtid where A.mid > %d"), iMaxVal);
+			strSQL.Format(_T("select A.*,B.typecode from TB_MESSAGE as A join TB_MESSAGETYPE as B on  A.mtid = B.mtid where A.mtid > %d"), iMaxVal);//kenny  20180918  A.tid   ->A.mtid
 			if (rs.Open(CRecordset::forwardOnly, (LPCTSTR)strSQL))
 			{
+
+				CRLog(E_APPINFO, "数据库查询一次");
+
 				while(!rs.IsEOF() && !bQuery)
 				{
 					iMaxVal = pInfoPub->DistributeInfo(rs);

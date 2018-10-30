@@ -2068,10 +2068,10 @@ int CCvgCpMgr::OnSyncTime(const string& sTmKey,unsigned long& ulTmSpan)
 	vecPara.push_back("*");
 	
 
-	map<unsigned int,SUB_CONTEXT> mapSubscri = CMemData::Instance()->GetSubscriberTbl().GetSubscriberMap();
+	auto & mapSubscri = CMemData::Instance()->GetSubscriberTbl().GetSubscriberMap();
 	if( !mapSubscri.empty())
 	{
-		for(map<unsigned int,SUB_CONTEXT>::iterator it = mapSubscri.begin();it != mapSubscri.end();++it)
+		for(auto it = mapSubscri.begin();it != mapSubscri.end();++it)
 		{
 			vecPara[0] = ToString<unsigned int>(it->second.nodeId);
 			vecPara[1] = ToString<unsigned int>(it->second.nodeId);
@@ -2143,7 +2143,7 @@ string CCvgCpMgr::OnCmdLineBuffer(const string& sCmd, const vector<string>& vecP
 	CMemData::Instance()->GetQuotationTbl().GetRecs(mapQuotation);
 	if (sInstID.empty())
 	{
-		for (map<string,QUOTATION>::iterator it = mapQuotation.begin(); it != mapQuotation.end(); ++it)
+		for (auto it = mapQuotation.begin(); it != mapQuotation.end(); ++it)
 		{
 			sRtn += ToHexString<unsigned int>((*it).second.m_CodeInfo.m_usMarketType);
 			sRtn += "\t";
@@ -2160,7 +2160,7 @@ string CCvgCpMgr::OnCmdLineBuffer(const string& sCmd, const vector<string>& vecP
 	}
 	else
 	{
-		for (map<string,QUOTATION>::iterator it = mapQuotation.begin(); it != mapQuotation.end(); ++it)
+		for (auto it = mapQuotation.begin(); it != mapQuotation.end(); ++it)
 		{
 			string sTmpID = (*it).second.m_CodeInfo.m_acCode;
 			if (sTmpID == sInstID)

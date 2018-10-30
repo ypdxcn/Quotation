@@ -28,6 +28,7 @@
 #include "DeliverMgr.h"
 #include <string>
 #include <odbcinst.h>
+#include <thread>
 
 using namespace std;
 
@@ -98,6 +99,9 @@ private:
 
     char m_buf[8192];
 
+
+	std::thread  m_ScanDBThread;
+	std::thread  m_ScanFileThread;
 public:
 	string m_szODBC;
 };

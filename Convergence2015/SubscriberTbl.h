@@ -24,7 +24,7 @@ public:
 	int CancelSubscriber(const unsigned int & subscriberID);
 
 	///获取当前所有登录用户的集合
-	map<unsigned int,SUB_CONTEXT> GetSubscriberMap();
+	map<unsigned int,SUB_CONTEXT> &GetSubscriberMap();
 
 	///释放成员元素
 	void Finish();

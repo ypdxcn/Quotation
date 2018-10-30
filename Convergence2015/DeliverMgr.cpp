@@ -2200,20 +2200,18 @@ void CDeliverMgr::HandleInfoData(CPacket &pkt, unsigned int uiNodeId)
     // 按NodeID发送报文
     unsigned int uiTmpCount = 0;
 
-    map<unsigned int,SUB_CONTEXT> mapSubscri = CMemData::Instance()->GetSubscriberTbl().GetSubscriberMap();
+    auto &mapSubscri = CMemData::Instance()->GetSubscriberTbl().GetSubscriberMap();
 
     if (!mapSubscri.empty())
     {
         if (MAX_UINT == uiNodeId)
         {
-            for(map<unsigned int,SUB_CONTEXT>::iterator it = mapSubscri.begin();
-                it != mapSubscri.end(); ++it)
+			for(auto it:mapSubscri)
             {
-                CSamplerPacket &oPkt = dynamic_cast<CSamplerPacket &>(pkt);
+                CSamplerPacket  &oPkt = dynamic_cast<CSamplerPacket &>(pkt);
+                CMessageImpl    &msg  = dynamic_cast<CMessageImpl &>(oPkt.GetMsg());	
 
-                CMessageImpl &msg = dynamic_cast<CMessageImpl &>(oPkt.GetMsg());	
-
-                msg.SetField(MSG_NODE_ID, it->second.nodeId);
+                msg.SetField(MSG_NODE_ID, it.second.nodeId);
 
                 m_pCvgCpMgr->Forward(pkt, m_ulKey);
 
@@ -2222,10 +2220,9 @@ void CDeliverMgr::HandleInfoData(CPacket &pkt, unsigned int uiNodeId)
         }
         else
         {
-            for(map<unsigned int,SUB_CONTEXT>::iterator it = mapSubscri.begin();
-                it != mapSubscri.end(); ++it)
+            for(auto it : mapSubscri)
             {
-                if (uiNodeId == it->second.nodeId)
+                if (uiNodeId == it.second.nodeId)
                 {
                     m_pCvgCpMgr->Forward(pkt, m_ulKey);
 
